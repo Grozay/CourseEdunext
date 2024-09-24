@@ -1,0 +1,31 @@
+<style>
+  .card-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    gap: 20px;
+  }
+</style>
+
+<div class="container mt-4">
+  <div class="col-sm-6 col-lg-4 card-list">
+    <% courses.forEach(course=>{ %>
+    <div class="card cart-couses-item">
+      <a href="/courses/<%= course.slug %>">
+        <img
+          src="<%= course.image %>"
+          class="card-img-top"
+          alt="<%=  course.name %>"
+        />
+      </a>
+      <div class="card-body">
+        <a href="/courses/<%= course.slug %>">
+          <h5 class="card-title"><%= course.name %></h5>
+        </a>
+        <p class="card-text"><%= course.description %></p>
+        <a href="#" class="btn btn-primary">Mua Khóa Học</a>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="mt-4">
+  <h3>My Courses</h3>
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Course Name</th>
+        <th scope="col">Level</th>
+        <th scope="col">Time Create</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% courses.forEach(function(course, index) { %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= course.name %></td>
+        <td><%= course.level %></td>
+        <td><%= course.createdAt %></td>
+        <td>
+          <a href="/courses/<%= course._id %>/edit" class="btn btn-link"
+            >Update</a
+          >
+        </td>
+        <td>
+          <form
+            action="/courses/delete/<%= course._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit" class="btn btn-link">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
